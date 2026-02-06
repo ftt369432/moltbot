@@ -206,4 +206,12 @@ export type AppViewState = {
   handleLogsLevelFilterToggle: (level: LogLevel) => void;
   handleLogsAutoFollowToggle: (next: boolean) => void;
   handleCallDebugMethod: (method: string, params: string) => Promise<void>;
+
+  // Models
+  modelsLoading: boolean;
+  modelsError: string | null;
+  availableModels: import("./controllers/models").ModelInfo[];
+  currentModelId: string | null;
+  loadModels: () => Promise<void>;
+  handleSetModel: (modelId: string) => Promise<void>;
 };

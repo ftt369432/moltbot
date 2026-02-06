@@ -139,6 +139,7 @@ export function connectGateway(host: GatewayHost) {
       void loadAgents(host as unknown as OpenClawApp);
       void loadNodes(host as unknown as OpenClawApp, { quiet: true });
       void loadDevices(host as unknown as OpenClawApp, { quiet: true });
+      void (host as unknown as OpenClawApp).loadModels();
       void refreshActiveTab(host as unknown as Parameters<typeof refreshActiveTab>[0]);
     },
     onClose: ({ code, reason }) => {
@@ -252,10 +253,10 @@ function handleGatewayEventUnsafe(host: GatewayHost, evt: GatewayEventFrame) {
 export function applySnapshot(host: GatewayHost, hello: GatewayHelloOk) {
   const snapshot = hello.snapshot as
     | {
-        presence?: PresenceEntry[];
-        health?: HealthSnapshot;
-        sessionDefaults?: SessionDefaultsSnapshot;
-      }
+      presence?: PresenceEntry[];
+      health?: HealthSnapshot;
+      sessionDefaults?: SessionDefaultsSnapshot;
+    }
     | undefined;
   if (snapshot?.presence && Array.isArray(snapshot.presence)) {
     host.presenceEntries = snapshot.presence;

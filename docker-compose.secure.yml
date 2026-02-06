@@ -1,0 +1,51 @@
+services:
+  gateway:
+    image: openclaw:secure
+    build: .
+    container_name: moltbot-secure
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    user: node
+    environment:
+      - NODE_ENV=production
+      - OPENCLAW_GATEWAY_TOKEN=${OPENCLAW_GATEWAY_TOKEN}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      # Persistent configuration & memory
+      - moltbot_data:/home/node/.openclaw
+      # Temporary storage for the app (required for read-only containers)
+      - /tmp
+    ports:
+      - "18789:18789" # Gateway API
+      - "5173:5173" # Web UI
+    restart: unless-stopped
+    command: [ "node", "dist/index.mjs", "gateway", "--bind", "0.0.0.0" ]
+
+  ui:
+    image: openclaw:secure
+    container_name: moltbot-ui
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    user: node
+    depends_on:
+      - gateway
+    volumes:
+      - /tmp
+    # The UI is actually served by the gateway in production usually, 
+    # but based on package.json 'pnpm ui:dev' runs vite. 
+    # In production Dockerfile, the UI is built and served?
+    # Checking Dockerfile again... 
+    # Dockerfile runs 'pnpm ui:build'. 
+    # The main entrypoint seems to serve it if configured?
+    # Actually, let's stick to the single gateway service as per Dockerfile CMD.
+    # The standard Dockerfile just runs 'node dist/index.mjs'.
+
+volumes:
+  moltbot_data:

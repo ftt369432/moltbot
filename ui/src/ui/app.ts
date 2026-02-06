@@ -78,6 +78,7 @@ import {
 } from "./app-channels";
 import type { NostrProfileFormState } from "./views/channels.nostr-profile-form";
 import { loadAssistantIdentity as loadAssistantIdentityInternal } from "./controllers/assistant-identity";
+import { loadModels as loadModelsInternal, setModel as setModelInternal } from "./controllers/models";
 
 declare global {
   interface Window {
@@ -246,6 +247,12 @@ export class OpenClawApp extends LitElement {
   @state() logsLimit = 500;
   @state() logsMaxBytes = 250_000;
   @state() logsAtBottom = true;
+
+  // Model state
+  @state() modelsLoading = false;
+  @state() modelsError: string | null = null;
+  @state() availableModels: import("./controllers/models").ModelInfo[] = [];
+  @state() currentModelId: string | null = null;
 
   client: GatewayBrowserClient | null = null;
   private chatScrollFrame: number | null = null;
@@ -488,6 +495,14 @@ export class OpenClawApp extends LitElement {
       this.sidebarError = null;
       this.sidebarCloseTimer = null;
     }, 200);
+  }
+
+  async loadModels() {
+    await loadModelsInternal(this as unknown as Parameters<typeof loadModelsInternal>[0]);
+  }
+
+  async handleSetModel(modelId: string) {
+    await setModelInternal(this as unknown as Parameters<typeof setModelInternal>[0], modelId);
   }
 
   handleSplitRatioChange(ratio: number) {

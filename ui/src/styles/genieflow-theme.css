@@ -1,0 +1,328 @@
+/**
+ * GenieFlow Cortex Theme
+ * Agent Brain - Intelligent Task Orchestration
+ * 
+ * This theme applies the GenieFlow brand identity to Cortex,
+ * the agent execution engine. Part of the unified GenieFlow
+ * product ecosystem.
+ * 
+ * GenieFlow Color Palette:
+ * - Primary Blue: #3b82f6
+ * - Dark Slate Blue: #273469
+ * - Dark Gray: #1a1a1a
+ * - Light Gray: #f3f4f6
+ * - Shimmer Grey: #dce1eb
+ */
+
+:root {
+    /* ============================================
+     GENIEFLOW BRANDED THEME - DARK MODE
+     ============================================ */
+
+    /* Background - GenieFlow Dark Gray base */
+    --bg: #1a1a1a;
+    --bg-accent: #1f1f24;
+    --bg-elevated: #252530;
+    --bg-hover: #2a2a36;
+    --bg-muted: #2a2a36;
+
+    /* Card / Surface - With slate blue undertones */
+    --card: #1e1e26;
+    --card-foreground: #f3f4f6;
+    --card-highlight: rgba(59, 130, 246, 0.05);
+    --popover: #1e1e26;
+    --popover-foreground: #f3f4f6;
+
+    /* Panel */
+    --panel: #1a1a1a;
+    --panel-strong: #252530;
+    --panel-hover: #2a2a36;
+    --chrome: rgba(26, 26, 26, 0.95);
+    --chrome-strong: rgba(26, 26, 26, 0.98);
+
+    /* Text - Clean and readable */
+    --text: #e4e4e7;
+    --text-strong: #f3f4f6;
+    --chat-text: #e4e4e7;
+    --muted: #71717a;
+    --muted-strong: #52525b;
+    --muted-foreground: #71717a;
+
+    /* Border - Subtle with blue hints */
+    --border: #27272a;
+    --border-strong: #3f3f46;
+    --border-hover: #3b82f6;
+    --input: #27272a;
+    --ring: #3b82f6;
+
+    /* Accent - GenieFlow Primary Blue */
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --accent-muted: #3b82f6;
+    --accent-subtle: rgba(59, 130, 246, 0.15);
+    --accent-foreground: #ffffff;
+    --accent-glow: rgba(59, 130, 246, 0.25);
+    --primary: #3b82f6;
+    --primary-foreground: #ffffff;
+
+    /* Secondary - Dark Slate Blue */
+    --secondary: #273469;
+    --secondary-foreground: #f3f4f6;
+    --accent-2: #273469;
+    --accent-2-muted: rgba(39, 52, 105, 0.7);
+    --accent-2-subtle: rgba(39, 52, 105, 0.15);
+
+    /* Semantic Colors - Harmonized */
+    --ok: #22c55e;
+    --ok-muted: rgba(34, 197, 94, 0.75);
+    --ok-subtle: rgba(34, 197, 94, 0.12);
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    --warn: #f59e0b;
+    --warn-muted: rgba(245, 158, 11, 0.75);
+    --warn-subtle: rgba(245, 158, 11, 0.12);
+    --danger: #ef4444;
+    --danger-muted: rgba(239, 68, 68, 0.75);
+    --danger-subtle: rgba(239, 68, 68, 0.12);
+    --info: #3b82f6;
+
+    /* Focus - Blue glow */
+    --focus: rgba(59, 130, 246, 0.25);
+    --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring);
+    --focus-glow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring), 0 0 20px var(--accent-glow);
+
+    /* Grid */
+    --grid-line: rgba(59, 130, 246, 0.04);
+
+    /* Shadows - With blue accent */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.03);
+    --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(59, 130, 246, 0.03);
+    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.03);
+    --shadow-glow: 0 0 30px var(--accent-glow);
+
+    color-scheme: dark;
+}
+
+/* ============================================
+   GENIEFLOW BRANDED THEME - LIGHT MODE
+   ============================================ */
+:root[data-theme="light"] {
+    /* Background - GenieFlow Light Gray base */
+    --bg: #f3f4f6;
+    --bg-accent: #ffffff;
+    --bg-elevated: #ffffff;
+    --bg-hover: #e5e7eb;
+    --bg-muted: #e5e7eb;
+    --bg-content: #f9fafb;
+
+    /* Card / Surface */
+    --card: #ffffff;
+    --card-foreground: #1a1a1a;
+    --card-highlight: rgba(59, 130, 246, 0.05);
+    --popover: #ffffff;
+    --popover-foreground: #1a1a1a;
+
+    /* Panel */
+    --panel: #f3f4f6;
+    --panel-strong: #e5e7eb;
+    --panel-hover: #d1d5db;
+    --chrome: rgba(243, 244, 246, 0.95);
+    --chrome-strong: rgba(243, 244, 246, 0.98);
+
+    /* Text */
+    --text: #374151;
+    --text-strong: #1a1a1a;
+    --chat-text: #374151;
+    --muted: #6b7280;
+    --muted-strong: #4b5563;
+    --muted-foreground: #6b7280;
+
+    /* Border */
+    --border: #e5e7eb;
+    --border-strong: #d1d5db;
+    --border-hover: #3b82f6;
+    --input: #e5e7eb;
+
+    /* Accent - Primary Blue */
+    --accent: #2563eb;
+    --accent-hover: #3b82f6;
+    --accent-muted: #2563eb;
+    --accent-subtle: rgba(37, 99, 235, 0.12);
+    --accent-foreground: #ffffff;
+    --accent-glow: rgba(37, 99, 235, 0.15);
+    --primary: #2563eb;
+    --primary-foreground: #ffffff;
+
+    /* Secondary - Dark Slate Blue */
+    --secondary: #dce1eb;
+    --secondary-foreground: #273469;
+    --accent-2: #273469;
+    --accent-2-muted: rgba(39, 52, 105, 0.75);
+    --accent-2-subtle: rgba(39, 52, 105, 0.12);
+
+    /* Semantic */
+    --ok: #16a34a;
+    --ok-muted: rgba(22, 163, 74, 0.75);
+    --ok-subtle: rgba(22, 163, 74, 0.1);
+    --destructive: #dc2626;
+    --destructive-foreground: #fafafa;
+    --warn: #d97706;
+    --warn-muted: rgba(217, 119, 6, 0.75);
+    --warn-subtle: rgba(217, 119, 6, 0.1);
+    --danger: #dc2626;
+    --danger-muted: rgba(220, 38, 38, 0.75);
+    --danger-subtle: rgba(220, 38, 38, 0.1);
+    --info: #2563eb;
+
+    /* Focus */
+    --focus: rgba(37, 99, 235, 0.2);
+    --focus-glow: 0 0 0 2px var(--bg), 0 0 0 4px var(--ring), 0 0 16px var(--accent-glow);
+
+    /* Grid */
+    --grid-line: rgba(59, 130, 246, 0.06);
+
+    /* Shadows - Light mode */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    --shadow-glow: 0 0 24px var(--accent-glow);
+
+    color-scheme: light;
+}
+
+/* ============================================
+   GENIEFLOW BRANDING OVERRIDES
+   ============================================ */
+
+/* Header / Topbar branding */
+.topbar {
+    background: linear-gradient(135deg, var(--bg) 0%, rgba(39, 52, 105, 0.1) 100%) !important;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Brand logo area */
+.topbar-left .brand {
+    color: var(--accent) !important;
+}
+
+/* Navigation active states */
+.nav-item.active {
+    background: var(--accent-subtle) !important;
+    color: var(--accent) !important;
+    border-left: 3px solid var(--accent) !important;
+}
+
+.nav-item:hover:not(.active) {
+    background: rgba(59, 130, 246, 0.05) !important;
+}
+
+/* Buttons - Primary */
+.btn--primary,
+button[type="submit"] {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3) !important;
+}
+
+.btn--primary:hover,
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Cards with shimmer effect */
+.card,
+.panel {
+    background: var(--card) !important;
+    border: 1px solid rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Status indicators */
+.status--ok,
+.status--connected {
+    color: var(--ok) !important;
+}
+
+.status--error,
+.status--disconnected {
+    color: var(--danger) !important;
+}
+
+/* Chat messages */
+.chat-message--assistant {
+    background: linear-gradient(135deg, rgba(39, 52, 105, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%) !important;
+    border-left: 3px solid var(--accent) !important;
+}
+
+/* Tool execution cards */
+.tool-card {
+    background: rgba(59, 130, 246, 0.05) !important;
+    border: 1px solid rgba(59, 130, 246, 0.15) !important;
+}
+
+.tool-card--running {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 12px var(--accent-glow) !important;
+}
+
+/* Model selector */
+.chat-controls__model select {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+}
+
+.chat-controls__model select:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px var(--accent-subtle) !important;
+}
+
+/* Scrollbar with brand color */
+::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.3) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(59, 130, 246, 0.5) !important;
+}
+
+/* Selection styling */
+::selection {
+    background: rgba(59, 130, 246, 0.3) !important;
+    color: #ffffff !important;
+}
+
+/* Glow animations with brand color */
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+    }
+}
+
+/* GenieFlow Badge (optional - add to header) */
+.genieflow-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(39, 52, 105, 0.15) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.genieflow-badge::before {
+    content: "⚡";
+}
